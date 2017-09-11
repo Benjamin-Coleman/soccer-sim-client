@@ -14,4 +14,14 @@ export default class PredictionsAdapter {
 
 		return fetch(this.baseURL + `competitions/${competitionId}/fixtures/`, options).then( res => res.json())
 	}
+	getFixtureFromCompetition(fixtureId) {
+		const options = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			}
+		}
+
+		return fetch(this.baseURL + `fixtures/${fixtureId}`, options).then( res => res.json())
+	}
 }

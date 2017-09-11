@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import TeamsAdapter from '../adapters/teamsAdapter'
 
 export default class FixtureItem extends React.Component  {
@@ -15,10 +16,9 @@ export default class FixtureItem extends React.Component  {
 	}	
 	
 	render() {
-	console.log(this.props)
-	console.log(this.state)
 		return (
-				<div className="score-box">
+			<div className="score-box">
+			<Link to={this.props.location.location.pathname + "/" + this.props.data.id} >
 					<div className="score">
 						<div className={this.props.data.status === "FINISHED" ? "score-box-container finished" : "score-box-container"}>
 							<div className="score-content">
@@ -44,7 +44,8 @@ export default class FixtureItem extends React.Component  {
 							</div>
 						</div>
 					</div>
-				</div>
+			</Link>	
+			</div>
 		)
 	}
 }

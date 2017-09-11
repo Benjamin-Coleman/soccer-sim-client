@@ -135,9 +135,17 @@ h1 {
 
 .score-box {
   width: 33.33%;
+  /*width: 80%;*/
+  margin: 0 auto;
   padding: 0 10px;
   position: relative;
 }
+
+/*@media only screen and (max-width: 600px){
+  .score-box {
+    width: 100%;
+  }
+}*/
 
 .team-names, .team-scores, .game-info {
     display: table-cell;
@@ -234,3 +242,12 @@ h1 {
 .game-info .time {
   color: #2a2f32;
 }
+
+/* Divider 
+======================================*/
+
+.divider h3 {
+  text-align: center;
+  font-size: 2em;
+}
+

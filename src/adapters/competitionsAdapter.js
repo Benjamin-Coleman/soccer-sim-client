@@ -14,4 +14,15 @@ export default class CompetitionsAdapter {
 
 		return fetch(this.baseURL + `competitions/${competitionId}`, options).then( res => res.json())
 	}
+
+	getCompetitions() {
+		const options = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			}
+		}
+
+		return fetch(this.baseURL + `competitions`, options).then( res => res.json())
+	}
 }
