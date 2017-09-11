@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  font-family: "futura-pt",sans-serif;
+}
+
+body {
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+/* Typography 
+====================================================*/
+
+p, li {
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #4c4e52;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+/* Header 
+====================================================*/
+
+.header {
+  height: 50px;
+  padding: 10px;
+  background-color: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  overflow: hidden;
+}
+
+.header .logo h2 {
+  color: white;
+  font-weight: 700;
+  font-family: "futura-pt",sans-serif;
+  font-size: 1.5em;
+}
+
+.nav-bar a {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  padding: 6px;
+  transition: all 300ms ease-in-out;
+  position: relative;
+  font-size: 16px;
+}
+
+.nav-bar a:before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  height: 2px;
+  width: 85%;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-bar a:hover:before{
+  transform: scaleX(1);
+
+}
+
+.nav-bar a.active:before {
+  transform: scaleX(1);
+}
+
+.page-header {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 35px 0;
+  font-weight: 700;
+}
+
+/* Display Fixtures List
+==================================================== */
+
+.score .scorebox-container .team-score, .score .score-links .team-score {
+  padding-right: 15px;
+}
+
+.scores-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.score-box-container{
+  width: 100%;
+  position: relative;
+  display: block;
+  border-color: #f6f6f6;
+  color: #4c4e52;
+  padding: 0 15px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+
+.score-box-container.finished {
+  background: #f6f6f6;
+}
+
+.score-box {
+  width: 33.33%;
+  padding: 0 10px;
+  position: relative;
+}
+
+.team-names, .team-scores, .game-info {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.score {
+  width: 100%;
+  margin: 0 auto 20px auto;
+  position: relative;
+  font-size: 1.2em;
+}
+
+.score-content {
+    display: table;
+    width: 100%;
+    white-space: nowrap;
+    height: 72px;
+    margin: 21px 0;
+}
+
+.team-names{
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+}
+
+.score .scorebox-container .score-content .team-name, .score .scorebox-container .score-content .team-score {
+  position: relative;
+  height: 50%;
+}
+
+.team-name {
+  position: relative;
+  height: 50%;
+}
+
+.team-name span {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 12px;
+  bottom: 0;
+  left: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.team-name span:before, .team-score span:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.team-name img {
+  padding: 0 8px 4px 0;
+  vertical-align: middle;
+  height: auto;
+}
+
+.team-scores {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.team-score {
+  text-align: right;
+  padding-right: 15px;
+  height: 50%;
+}
+
+.team-score.winner {
+  font-weight: bold;
+}
+
+.game-info {
+  width: 20%;
+  border-left-width: 1px;
+  border-left-style: solid;
+  padding-right: 3px;
+  border-color: #e4e5e7;
+  color: #9ea3ae;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  line-height: 1.8;
+  padding-left: 15px;
+}
+
+.game-info .time {
+  color: #2a2f32;
+}
