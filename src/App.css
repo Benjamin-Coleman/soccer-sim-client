@@ -4,6 +4,11 @@
   font-smoothing: antialiased;
 }
 
+::selection {
+  background: #222;
+  color: white;
+}
+
 a {
   text-decoration: none;
   font-family: "futura-pt",sans-serif;
@@ -15,11 +20,31 @@ body {
   font-weight: 400;
 }
 
+hr {
+  margin: 0;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+}
+
+/* Loading Screen
+====================================================*/
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
 }
 
 /* Typography 
@@ -37,6 +62,10 @@ h1 {
   font-family: "futura-pt",sans-serif;
   font-style: normal;
   font-weight: 400;
+  text-align: center;
+    font-size: 2.5em;
+    margin: 35px 0;
+    font-weight: 700;
 }
 
 
@@ -251,3 +280,210 @@ h1 {
   font-size: 2em;
 }
 
+/* Fixture Details 
+=======================================*/
+
+.top-banner {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-image {
+  height: auto;
+  width: 160px;
+}
+
+.team-image.home img {
+  width: 400px;
+  left: -50px;
+  position: absolute;
+  top: -80px;
+}
+
+.team-image.away img {
+  width: 400px;
+  right: -50px;
+  position: absolute;
+  top: -80px;
+}
+
+.fixture-details-headline h3 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.8em;
+  margin: 10px 0 0 0;
+  line-height: 0.9em;
+  z-index: 2;
+  text-shadow: 2px 2px 10px white;
+  position: relative;
+}
+
+.team-headline h1 {
+  font-size: 3em;
+  padding-right: 60px;
+  font-weight: 700;
+}
+
+.probability-wrapper {
+  max-width: 610px;
+  margin: 20px auto;
+}
+
+.probability-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.probability-row:before {
+  content: '';
+  height: 1px;
+  width: 500px;
+  position: absolute;
+  background: #222;
+  top: 50%;
+  z-index: -1;
+}
+
+.probability-row div {
+  border: 1px solid black;
+}
+
+.probability-percentage {
+  width: 200px;
+  background: #222;
+  color: white;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.probability-percentage h2 {
+  margin: 10px 0;
+}
+
+.probability-goals {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.probability-goals.winner {
+  background: #dcc443;
+}
+
+.probability-goals.winner h3{
+  font-weight: 700;
+}
+
+.probability-goals h3 {
+  margin: 5px 0;
+  font-weight: 400;
+}
+
+.full-results {
+  max-width: 610px;
+  margin: 0 auto;
+}
+
+.full-results table, .full-results th, .full-results td {
+  border: 1px solid black;
+  border-spacing: 0px;
+}
+
+.full-results td {
+  padding: 5px;
+}
+
+.full-results th {
+  background: #222;
+  color: white;
+}
+
+.full-results table {
+  margin: 0 auto;
+}
+
+/* Competitions Page
+===========================================*/
+
+.all-competitions-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.league-inner {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #f6f6f6;
+  min-height: 200px;
+  background: #f6f6f6;
+}
+
+.league h2 {
+  font-weight: 400;
+  color: #222;
+  text-align: center;
+}
+
+.team-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-thumbnails img {
+  margin: 3px;
+  width: 25px;
+  height: 25px;
+}
+
+/* Home 
+===========================================*/
+
+.video-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.video-wrapper.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 3;
+}
+
+.home-inner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+.home-inner h1 {
+  font-size: 5.5em;
+  color: white;
+  padding-bottom: 2.4em;
+}
+
+.home-inner p {
+  
+}

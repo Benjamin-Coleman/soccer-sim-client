@@ -25,7 +25,7 @@ export default class Search extends React.Component {
 	getSuggestionValue = suggestion => suggestion.name;
 
 	handleClick = (id, history) => {
-		history.push(`teams/${id}`)
+		history.push(`/teams/${id}`)
 	}
 
 	// Use your imagination to render suggestions.

@@ -18,7 +18,7 @@ export default class FixtureItem extends React.Component  {
 	render() {
 		return (
 			<div className="score-box">
-			<Link to={this.props.location.location.pathname + "/" + this.props.data.id} >
+			<Link to={"/competitions/" + this.props.data.competition_id + '/fixtures/' + this.props.data.id} >
 					<div className="score">
 						<div className={this.props.data.status === "FINISHED" ? "score-box-container finished" : "score-box-container"}>
 							<div className="score-content">

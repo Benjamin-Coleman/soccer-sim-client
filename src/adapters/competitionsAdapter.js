@@ -25,4 +25,15 @@ export default class CompetitionsAdapter {
 
 		return fetch(this.baseURL + `competitions`, options).then( res => res.json())
 	}
+
+	getAllTeamsByCompetition() {
+		const options = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			}
+		}
+
+		return fetch(this.baseURL + `/competitions/teams`, options).then( res => res.json())
+	}
 }
