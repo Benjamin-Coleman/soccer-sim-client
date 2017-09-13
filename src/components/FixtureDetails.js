@@ -63,12 +63,23 @@ export default class FixtureDetail extends React.Component {
 							<img src={this.state.fixture.away_team.crest_url} alt={this.state.fixture.away_team.name} />
 						</div>
 					</div>
+					{ this.state.fixture.data.status === "FINISHED" && 
+					<div className="finished-game">
+						<h2>Final</h2>
+						<div className="finished-game-row">
+							<div className="home-final-score">{this.state.fixture.data.goals_home}</div>
+							<div className="away-final-score">{this.state.fixture.data.goals_away}</div>
+						</div>
+					</div>
+					}
 					{ this.state.fixture.predictions.length > 0 && (
 						<div>
 					<div className="probability-wrapper">
+						<h2>Predicted Outcomes</h2>
 						{ this.probabilityElements() }
 					</div>
 					<div className="full-results">
+						<h2>Full Predictions</h2>
 						<table>
 							<tbody>
 								<tr>

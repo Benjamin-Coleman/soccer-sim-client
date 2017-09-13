@@ -64,7 +64,7 @@ export default class Team extends React.Component {
 					</div>
 				</div>
 				<div className="scores-wrapper">
-					{this.groupByCompetition().map((comp, index)=> <CompetitionGroup key={index} fixtures={comp} />)}
+					{this.groupByCompetition().map((comp, index)=> <CompetitionGroup key={`${comp[0].data.competition_id}-${this.state.currentTeam}`} fixtures={comp} />)}
 				</div>
 			</div>
 			)

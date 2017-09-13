@@ -5,41 +5,39 @@ import TeamsAdapter from '../adapters/teamsAdapter'
 export default class FixtureItem extends React.Component  {
 
 	state = {
-		homeTeamData: {},
-		awayTeamData: {},
+		fixture: this.props.fixture,
 	}
 
-	componentDidMount = () => {
-		const adapter = new TeamsAdapter()
-	    adapter.getTeamData(this.props.data.home_team_id).then(json => this.setState({homeTeamData: json }))
-	    adapter.getTeamData(this.props.data.away_team_id).then(json => this.setState({awayTeamData: json }))
-	}	
-	
+	componentWillReceiveProps = (nextProps) => {
+		this.setState({fixture: nextProps.fixture})
+	}
+
 	render() {
+		console.log(this.state)
 		return (
 			<div className="score-box">
-			<Link to={"/competitions/" + this.props.data.competition_id + '/fixtures/' + this.props.data.id} >
+			<Link to={"/competitions/" + this.state.fixture.data.competition_id + '/fixtures/' + this.state.fixture.data.id} >
 					<div className="score">
-						<div className={this.props.data.status === "FINISHED" ? "score-box-container finished" : "score-box-container"}>
+						<div className={this.state.fixture.data.status === "FINISHED" ? "score-box-container finished" : "score-box-container"}>
 							<div className="score-content">
 								<div className="team-names">
 									<div className="team-name">
-										<span><img src={this.state.homeTeamData.crest_url} width="32px" alt={this.state.homeTeamData.name}/>{this.state.homeTeamData.name}</span>
+										<span><img src={this.state.fixture.home_team.crest_url} width="32px" alt={this.state.fixture.home_team.name}/>{this.state.fixture.home_team.name}</span>
 									</div>
 									<div className="team-name">
-										<span><img src={this.state.awayTeamData.crest_url} width="32px" alt={this.state.homeTeamData.name}/>{this.state.awayTeamData.name}</span>
+										<span><img src={this.state.fixture.away_team.crest_url} width="32px" alt={this.state.fixture.away_team.name}/>{this.state.fixture.away_team.name}</span>
 									</div>
 								</div>
 								<div className="team-scores">
-									<div className={this.props.data.goals_home > this.props.data.goals_away ? "team-score winner" : "team-score"}>
-										<span>{this.props.data.goals_home}</span>
+									<div className={this.state.fixture.data.goals_home > this.state.fixture.data.goals_away ? "team-score winner" : "team-score"}>
+										<span>{this.state.fixture.data.goals_home}</span>
 									</div>									
-									<div className={this.props.data.goals_away > this.props.data.goals_home ? "team-score winner" : "team-score"}>
-										<span>{this.props.data.goals_away}</span>
+									<div className={this.state.fixture.data.goals_away > this.state.fixture.data.goals_home ? "team-score winner" : "team-score"}>
+										<span>{this.state.fixture.data.goals_away}</span>
 									</div>
 								</div>
 								<div className="game-info">
-									<span className="time">{this.props.data.status === "FINISHED" ? "FT" : "SIM"}</span>
+									<span className="time">{this.state.fixture.data.status === "FINISHED" ? "FT" : "SIM"}</span>
 								</div>
 							</div>
 						</div>

@@ -30,8 +30,8 @@ export default class Search extends React.Component {
 
 	// Use your imagination to render suggestions.
 	renderSuggestion = suggestion => (
-	  <Route render={ ({ history }) => (<div onClick={() => this.handleClick(suggestion.id, history)} style={{ display: 'table'}}>
-		  	<span style={{ display: 'table-cell', verticalAlign: 'middle'}}><img style={{width: '23px', height: 'auto', marginRight: '8px'}} src={suggestion.crest_url} alt={suggestion.name}/></span>
+	  <Route render={ ({ history }) => (<div onClick={() => this.handleClick(suggestion.id, history)} style={{ display: 'table', margin: '10px 20px', width: '100%'}}>
+		  	<span style={{ display: 'table-cell', verticalAlign: 'middle'}}><img style={{width: '23px', height: 'auto', marginRight: '8px'}} src={suggestion.crest_url} alt=""/></span>
 		    {suggestion.name}
 		  </div>
 		  )

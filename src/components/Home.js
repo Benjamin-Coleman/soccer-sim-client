@@ -6,7 +6,7 @@ export default class Home extends React.Component {
 		return (
 			<div className="video-wrapper">
 				<div className="video-wrapper screen"></div>
-				<video style={{height: '109vh',}} src="video/Soccer_field_-Footbull-_Animated_background.mp4" type="video/mp4" autoPlay loop>
+				<video style={{height: '109vh',}} src="video/Soccer_field_-Footbull-_Animated_background.mp4" type="video/mp4" autoPlay loop muted>
 				</video>
 				<div className="home-inner">
 					<h1>SoccerSim</h1>

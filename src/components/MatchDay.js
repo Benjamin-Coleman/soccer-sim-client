@@ -9,11 +9,10 @@ export default class MatchDay extends React.Component {
 	}
 
 	render() {
-		const scoreBoxes = this.state.fixtures.map((fixture, index)=> <Route key={index} path={'/competitions/:id/fixtures'} render={(location) => <FixtureItem location={location} data={fixture} key={index} />} />)
-
+		const scoreBoxes = this.state.fixtures.map((fixture, index)=> <Route key={index} path={'/competitions/:id/fixtures'} render={(location) => <FixtureItem location={location} fixture={fixture} key={index} />} />)
 		return (
 		<div>
-			<div className="divider"><hr /><h3>{new Date(this.state.fixtures[0].match_date).toISOString().substring(0, 10)}</h3></div>
+			<div className="divider"><hr /><h3>{new Date(this.state.fixtures[0].data.match_date).toISOString().substring(0, 10)}</h3></div>
 			<div className="scores-wrapper">
 				{ scoreBoxes }
 			</div>

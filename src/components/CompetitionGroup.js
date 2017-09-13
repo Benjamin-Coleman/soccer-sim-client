@@ -8,9 +8,13 @@ export default class CompetitionGroup extends React.Component {
 		fixturesData: this.props.fixtures,
 	}
 
+	componentWillReceiveProps = (nextProps) => {
+		this.setState({fixturesData: nextProps.fixtures})
+	} 
+
 	scoreBoxes = () => {
 		let scoreBoxes = this.state.fixturesData.map((fixture, index)=> {
-			return <FixtureItem data={fixture.data} key={fixture.data.id} />
+			return <FixtureItem fixture={fixture} key={fixture.data.id} />
 		})
 		return scoreBoxes
 	}
