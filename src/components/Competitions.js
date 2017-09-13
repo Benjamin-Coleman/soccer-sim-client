@@ -18,7 +18,6 @@ export default class Competition extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		const competitions = this.state.data.map((data, index)=> <Link key={index}to={'/competitions/' + data.competition.id + '/fixtures'} ><div className="league"><div className="league-inner"><h2>{data.competition.name}</h2><div className="team-thumbnails">{this.getThumbnails(data.teams)}</div></div></div></Link>)
 		return (
 			<div>

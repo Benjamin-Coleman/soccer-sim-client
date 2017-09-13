@@ -457,6 +457,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#152e68', end
   align-items: center;
   justify-content: center;
   background: white;
+  position: relative;
 }
 
 .probability-goals.winner {
@@ -470,6 +471,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#152e68', end
 .probability-goals h3 {
   margin: 5px 0;
   font-weight: 400;
+}
+
+.probability-goals.away:after {
+  content: '';
+  background: white;
+  position: absolute;
+  right: -151px;
+  height: 50px;
+  width: 150px;
+  z-index: 6;
+}
+
+.probability-goals.home:after {
+  content: '';
+  background: white;
+  position: absolute;
+  left: -151px;
+  height: 50px;
+  width: 150px;
+  z-index: 6;
 }
 
 .full-results {

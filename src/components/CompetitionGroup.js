@@ -1,6 +1,6 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import FixtureItem from './FixtureItem'
+import { TweenMax } from 'gsap'
 
 export default class CompetitionGroup extends React.Component {
 
@@ -12,6 +12,11 @@ export default class CompetitionGroup extends React.Component {
 		this.setState({fixturesData: nextProps.fixtures})
 	} 
 
+	componentDidMount = () => {
+		const scoreBoxesElements = this.refs.teamScoresWrapper.querySelectorAll('.score-box')
+		TweenMax.staggerFromTo(scoreBoxesElements, .6, {opacity: 0, y: 10}, {opacity: 1, y: 0, ease: 'Power2'}, .1)
+	}
+
 	scoreBoxes = () => {
 		let scoreBoxes = this.state.fixturesData.map((fixture, index)=> {
 			return <FixtureItem fixture={fixture} key={fixture.data.id} />
@@ -21,7 +26,7 @@ export default class CompetitionGroup extends React.Component {
 
 	render() {
 		return (
-		<div>
+		<div ref="teamScoresWrapper">
 			<div className="divider"><hr /><h3>{this.state.fixturesData[0].competition.name}</h3></div>
 			<div className="scores-wrapper">
 				{ this.scoreBoxes() }

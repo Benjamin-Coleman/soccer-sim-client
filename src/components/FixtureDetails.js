@@ -1,7 +1,6 @@
 import React from 'react'
-
+import { TweenMax } from 'gsap'
 import PredictionsAdapter from '../adapters/predictionsAdapter'
-import PageHeader from './PageHeader'
 
 export default class FixtureDetail extends React.Component {
 
@@ -29,7 +28,16 @@ export default class FixtureDetail extends React.Component {
 
   componentDidMount = () => {
     const adapter = new PredictionsAdapter()
-    adapter.getFixtureFromCompetition(this.props.fixture.match.params.fixture).then(json => this.setState({fixture: json, isLoaded: true }))
+    adapter.getFixtureFromCompetition(this.props.fixture.match.params.fixture).then(json => this.setState({fixture: json, isLoaded: true }, this.animate))
+  }
+
+  animate = () => {
+  	const left = this.refs.probabilityWrapper.querySelectorAll('.probability-goals.home')
+  	const right = this.refs.probabilityWrapper.querySelectorAll('.probability-goals.away')
+	TweenMax.fromTo(this.refs.homeTeamImage, .6, {y: 60}, {y: 0, ease: "Expo"})
+	TweenMax.fromTo(this.refs.awayTeamImage, .6, {y: 60}, {y: 0, ease: "Expo"})
+	TweenMax.staggerFromTo(left, 1, {x: 107}, {x: 0, ease: 'Expo'}, .2)
+	TweenMax.staggerFromTo(right, 1, {x: -107}, {x: 0, ease: 'Expo'}, .2)
   }
 
 	probabilityElements = () => {
@@ -46,20 +54,19 @@ export default class FixtureDetail extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.fixture.full_predictions)
 		return (
 			<div>
 			{this.state.isLoaded ?
 				<div>
 					<div className="top-banner">
-						<div className="team-image home">
+						<div ref="homeTeamImage" className="team-image home">
 							<img src={this.state.fixture.home_team.crest_url} alt={this.state.fixture.home_team.name} />
 						</div>
 						<div className="fixture-details-headline">
 							<h3>{this.state.fixture.home_team.name} <br /> vs. <br />{this.state.fixture.away_team.name}</h3>
 							<p>{new Date(this.state.fixture.data.match_date).toISOString().substring(0, 10)}</p>
 						</div>
-						<div className="team-image away">
+						<div ref="awayTeamImage" className="team-image away">
 							<img src={this.state.fixture.away_team.crest_url} alt={this.state.fixture.away_team.name} />
 						</div>
 					</div>
@@ -74,7 +81,7 @@ export default class FixtureDetail extends React.Component {
 					}
 					{ this.state.fixture.predictions.length > 0 && (
 						<div>
-					<div className="probability-wrapper">
+					<div ref="probabilityWrapper" className="probability-wrapper">
 						<h2>Predicted Outcomes</h2>
 						{ this.probabilityElements() }
 					</div>

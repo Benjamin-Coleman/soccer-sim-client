@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TeamsAdapter from '../adapters/teamsAdapter'
 
 export default class FixtureItem extends React.Component  {
 
@@ -13,7 +12,6 @@ export default class FixtureItem extends React.Component  {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="score-box">
 			<Link to={"/competitions/" + this.state.fixture.data.competition_id + '/fixtures/' + this.state.fixture.data.id} >

@@ -1,8 +1,6 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import TeamsAdapter from '../adapters/teamsAdapter'
 import PredictionsAdapter from '../adapters/predictionsAdapter'
-import FixtureItem from './FixtureItem'
 import CompetitionGroup from './CompetitionGroup'
 
 export default class Team extends React.Component {
@@ -32,7 +30,7 @@ export default class Team extends React.Component {
 		let competitionsArray = []
 		let fixtures = []
 		let currentCompetitionId = 0
-		this.state.fixturesData.map((fixture, index)=> {
+		this.state.fixturesData.forEach((fixture, index)=> {
 			if (fixture.data.competition_id !== currentCompetitionId){
 				currentCompetitionId = fixture.data.competition_id
 				// fixtures.push(fixture)
@@ -46,7 +44,6 @@ export default class Team extends React.Component {
 			if (fixtures.length !== 0){
 				competitionsArray.push(fixtures)
 			}
-			console.log(competitionsArray)
 		return competitionsArray
 	}
 
